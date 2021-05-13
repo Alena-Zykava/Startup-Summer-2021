@@ -1,0 +1,21 @@
+.search {
+  background: #fff;
+  border-radius: 6px;
+  padding: 8px 14px;
+  margin: 16px 22px;
+  width: 35vw;
+  display: flex;
+  align-items: center;
+}
+
+.search__input {
+  border: none;
+  margin-left: 6px;
+  width: 100%;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.fa-search {
+  color: #808080;
+}
