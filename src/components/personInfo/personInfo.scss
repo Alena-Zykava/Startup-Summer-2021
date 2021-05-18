@@ -1,0 +1,38 @@
+.person-info {
+  width: calc(100% / 3);
+  padding-right: 20px;
+  &__photo {
+    max-height: 280px;
+    max-width: 280px;
+    margin-bottom: 30px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+  &__name {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 130%;
+    margin-bottom: 12px;
+  }
+  &__username {
+    font-size: 18px;
+    line-height: 22px;
+    color: #0064eb;
+  }
+  &__friends {
+    margin: 32px 0;
+    display: flex;
+    .fa-user-friends,
+    .fa-user {
+      color: #808080;
+      margin-right: 8px;
+    }
+    .fa-user {
+      margin-left: 16px;
+    }
+  }
+}

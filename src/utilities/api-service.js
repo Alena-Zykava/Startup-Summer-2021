@@ -5,5 +5,5 @@ export const getPerson = (userName) => {
 }
 
 export const getPersonRepos = (userName) => {
-    return httpPerson.get(`user/${userName}/repos`)
+    return httpPerson.get(`users/${userName}/repos`)
 }

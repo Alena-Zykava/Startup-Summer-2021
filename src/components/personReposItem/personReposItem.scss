@@ -1,0 +1,14 @@
+.person-repos__item {
+  background: #fff;
+  margin: 12px 0;
+  border-radius: 6px;
+  padding: 24px 32px;
+  width: 100%;
+  &__title {
+    color: #0064eb;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 16px;
+  }
+}

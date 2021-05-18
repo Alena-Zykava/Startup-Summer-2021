@@ -1,22 +1,28 @@
 
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import './app.scss';
 import Header from '../header';
-//import StartPage from '../startPage';
+import StartPage from '../startPage';
 import MainPage from '../mainPage';
 
 
-function App() {
-    const [userName, getUserName] = useState('');    
+function App() { 
   return (
-    <div className="app">
-          <Header getUserName={ getUserName }/>
+      <div className="app">
+          <Router>
+          <Header />
           <div className='page-container'>
-              {/* <StartPage /> */}
-              <MainPage userName={ userName }/>
+                
+                  <Route exact path="/" component={StartPage} />
+                  <Route path="/:id" render={({ match }) => {
+                      const { id } = match.params;
+                      return <MainPage userName={id} />
+                  }} />           
+              
           </div>
-          
+          </Router>
     </div>
   );
 }

@@ -1,27 +1,15 @@
-import React,  { useEffect, useState } from 'react';
+import React from 'react';
 import './personInfo.scss';
 
-import {getPerson} from '../../utilities/api-service'
-
-const PersonInfo = ({userName}) => {
-
-    const [personData, getPersonData] = useState({});
-
-    useEffect(() => {
-        getPerson(userName).then((res) => {
-            getPersonData(res.data);            
-        })
-    }, [userName])
-
-
+const PersonInfo = ({personData}) => { 
     return (
-        <>
-            <div className='person-photo'>
+        <div className='person-info'>
+            <div className='person-info__photo'>
                 <img src={personData.avatar_url} alt='Avatar' />
             </div>
-            <h1 className='person-name'>{ personData.name }</h1>
-            <a className='person-username' href={personData.html_url}>{ personData.login}</a>
-            <div>
+            <h1 className='person-info__name'>{ personData.name }</h1>
+            <a className='person-info__username' href={personData.html_url} target='_blank' rel='noreferrer'>{ personData.login}</a>
+            <div className='person-info__friends'>
                 <div>
                     <i className='fas fa-user-friends'></i>
                     <span>{personData.followers} followers</span>
@@ -31,7 +19,7 @@ const PersonInfo = ({userName}) => {
                     <span>{personData.following} following</span>
                 </div>                
             </div>
-        </>
+        </div>
     )
 }
 

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import './search.scss';
+import { withRouter } from 'react-router-dom';
 
-const Search = ({ getUserName }) => {
+const Search = ({ history }) => {
     const [inputSearch, getInputSearch] = useState('');
 
     const onSubmit = (e) => {
-        getUserName(inputSearch);
         console.log(inputSearch);
         e.preventDefault();
+        history.push(inputSearch);
+        getInputSearch('');
     }
 
     const handleChange = (e) => {
@@ -17,10 +19,11 @@ const Search = ({ getUserName }) => {
     return (
         <div className='search'>
             <i className='fas fa-search'></i>
-            <form onSubmit={ onSubmit }>
+            <form className='search__form' onSubmit={ onSubmit }>
                 <input className='search__input'
                     type='search'
                     placeholder='Enter GitHub username'
+                    value={inputSearch}
                     onChange={ handleChange }/>
             </form>
             
@@ -28,4 +31,4 @@ const Search = ({ getUserName }) => {
     )
 }
 
-export default Search;
+export default withRouter(Search);

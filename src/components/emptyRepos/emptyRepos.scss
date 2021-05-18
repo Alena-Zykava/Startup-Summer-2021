@@ -1,0 +1,15 @@
+.empty-repos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  &__image{
+      padding: 48px;
+  }
+  &__content {
+    font-size: 22px;
+    line-height: 140%;
+    color: #808080;
+  }
+}

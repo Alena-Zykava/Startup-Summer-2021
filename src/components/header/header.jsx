@@ -1,14 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './header.scss';
 
 import Search from '../search/';
 
-const Header = ({ getUserName }) => {    
+const Header = () => {    
     return (
         <div className='header'>
             <div className='header__container'>
-                <i className='fab fa-github'></i>
-                <Search getUserName={ getUserName }/>
+                <Link to='/' >
+                    <i className='fab fa-github'></i>
+                </Link>                
+                <Search />
             </div>
             
         </div>
