@@ -1,15 +1,17 @@
 .person-info {
-  width: calc(100% / 3);
-  padding-right: 20px;
+  width: 30%;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
   &__photo {
     max-height: 280px;
     max-width: 280px;
     margin-bottom: 30px;
+    border-radius: 50%;
+    overflow: hidden;
     img {
       height: 100%;
       width: 100%;
-      object-fit: cover;
-      border-radius: 50%;
     }
   }
   &__name {
@@ -26,13 +28,33 @@
   &__friends {
     margin: 32px 0;
     display: flex;
+    flex-wrap: wrap;
     .fa-user-friends,
     .fa-user {
       color: #808080;
       margin-right: 8px;
     }
-    .fa-user {
-      margin-left: 16px;
+  }
+  &__followers {
+    padding-right: 16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .person-info {
+    &__name {
+      font-size: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .person-info {
+    width: 100%;
+    align-items: center;
+    &__photo {
+      max-height: 140px;
+      max-width: 140px;
     }
   }
 }

@@ -1,12 +1,8 @@
 .pagination {
   display: inline-block;
-  padding-left: 15px;
-  padding-right: 15px;
-  color: #808080;
+  padding-left: 16px;
   li {
     display: inline-block;
-    font-size: 14px;
-    line-height: 21px;
     margin-right: 16px;
     text-align: center;
     cursor: pointer;
@@ -17,4 +13,14 @@
       color: #fff;
     }
   }
+}
+
+.paginate {
+  font-size: 14px;
+  line-height: 21px;
+  color: #808080;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
 }

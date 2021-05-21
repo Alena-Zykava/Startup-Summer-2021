@@ -1,5 +1,6 @@
 import React from 'react';
 import './personReposItem.scss';
+import { object } from 'prop-types';
 
 const PersonReposItem = ({repos}) => {
     return (
@@ -10,6 +11,10 @@ const PersonReposItem = ({repos}) => {
             <p>{repos.description}</p>
         </div>
     )
+}
+
+PersonReposItem.propTypes = {
+    repos: object
 }
 
 export default PersonReposItem;

@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   &__form {
-      width: 100%;
+    width: 100%;
   }
   &__input {
     border: none;
@@ -20,4 +20,10 @@
 
 .fa-search {
   color: #808080;
+}
+
+@media screen and (max-width: 575px) {
+  .search {
+    width: 100%;
+  }
 }

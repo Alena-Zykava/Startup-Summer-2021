@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './mainPage.scss';
+import { string } from 'prop-types';
 
 import { getPerson } from '../../utilities/api-service';
 import PersonInfo from '../personInfo';
@@ -17,7 +18,10 @@ const MainPage = ({ userName }) => {
             getLoading(false);
             getIsNotFound(false);
             getPersonData(res.data);
-        }).catch(() => { getIsNotFound(true) })
+        }).catch(() => {
+            getLoading(false);
+            getIsNotFound(true)
+        })
     }, [userName]);
 
 
@@ -32,9 +36,13 @@ const MainPage = ({ userName }) => {
     return (
         <div className='main-page'>
             <PersonInfo personData={ personData}/>
-            <PersonRepos userName={userName} />
+            <PersonRepos userName={userName} numberRepos={ personData.public_repos }/>
         </div>
     )
 }
+
+MainPage.propTypes = {
+    userName: string
+};
 
 export default MainPage;

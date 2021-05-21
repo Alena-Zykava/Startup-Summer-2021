@@ -1,5 +1,6 @@
 import React from 'react';
 import './personInfo.scss';
+import { object } from 'prop-types';
 
 const PersonInfo = ({personData}) => { 
     return (
@@ -10,7 +11,7 @@ const PersonInfo = ({personData}) => {
             <h1 className='person-info__name'>{ personData.name }</h1>
             <a className='person-info__username' href={personData.html_url} target='_blank' rel='noreferrer'>{ personData.login}</a>
             <div className='person-info__friends'>
-                <div>
+                <div className='person-info__followers'>
                     <i className='fas fa-user-friends'></i>
                     <span>{personData.followers} followers</span>
                 </div>
@@ -21,6 +22,10 @@ const PersonInfo = ({personData}) => {
             </div>
         </div>
     )
+}
+
+PersonInfo.propTypes = {
+    personData: object
 }
 
 export default PersonInfo;

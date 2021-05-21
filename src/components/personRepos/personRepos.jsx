@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import { string, number } from 'prop-types';
 import './personRepos.scss';
 
 import { getPersonRepos } from '../../utilities/api-service';
@@ -8,18 +8,19 @@ import Paginate from '../paginate';
 import Spinner from '../spinner';
 import EmptyRepos from '../emptyRepos';
     
-const PersonRepos = ({userName}) => {
+const PersonRepos = ({userName, numberRepos}) => {
     const [reposData, getReposData] = useState([]);
     const [loading, getLoading] = useState(true);
     const [isEmptyRepos, getIsEmptyRepos] = useState(false);
+    const [currentPage, getCurrentPage] = useState(1);
 
     useEffect(() => {
-        getPersonRepos(userName).then((res) => {            
+        getPersonRepos(userName, currentPage).then((res) => {            
             getReposData(res.data);
             getLoading(false);
             res.data.length === 0 ? getIsEmptyRepos(true) : getIsEmptyRepos(false);            
         })
-    }, [userName]);
+    }, [userName, currentPage]);
 
 
     const items = reposData.map((repos) => {
@@ -30,12 +31,14 @@ const PersonRepos = ({userName}) => {
 
     const contentRepos = () => {
         return (
-            <div className='person-repos'>
-                <h2>
-                    Repositories({reposData.length})
-                </h2>
-                {items}
-                <Paginate />
+            <div className='person-repos'>                
+                <div>
+                    <h2 className='person-repos__title'>
+                        Repositories({numberRepos})
+                    </h2>
+                    {items}
+                </div>                
+                <Paginate numberRepos={numberRepos} getCurrentPage={ getCurrentPage }/>
             </div>
         )
     }
@@ -51,6 +54,11 @@ const PersonRepos = ({userName}) => {
             {content}
         </>
     )
+}
+
+PersonRepos.propTypes = {
+    userName: string,
+    numberRepos: number
 }
 
 export default PersonRepos;
