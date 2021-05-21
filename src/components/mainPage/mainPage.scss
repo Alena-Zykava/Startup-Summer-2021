@@ -1,0 +1,11 @@
+.main-page {
+  display: flex;  
+  margin: 0 -15px;
+  height: 100%;
+}
+
+@media screen and (max-width: 575px) {
+    .main-page{
+        flex-direction: column;
+    }  
+}

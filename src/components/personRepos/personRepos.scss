@@ -1,0 +1,24 @@
+.person-repos {
+  width: 70%;
+  padding: 0 15px;
+  &__title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .person-repos__title {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .person-repos {
+    width: 100%;
+    &__title {
+      text-align: center;
+    }
+  }
+}

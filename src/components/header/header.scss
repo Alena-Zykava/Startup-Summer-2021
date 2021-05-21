@@ -1,0 +1,19 @@
+.header {
+  background-color: #0064eb;
+  &__container {
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+  }
+}
+
+.fa-github {
+  color: #fff;
+  font-size: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .header__container {
+    padding: 0 20px;
+  }
+}

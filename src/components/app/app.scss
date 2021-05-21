@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 19px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.page-container {
+  height: calc(100vh - 72px);
+  padding: 40px 56px 28px;
+}
+
+@media screen and (max-width: 768px) {
+  .page-container {
+    padding: 15px 20px;
+  }
+}
