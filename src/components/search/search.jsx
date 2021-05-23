@@ -6,7 +6,6 @@ const Search = ({ history }) => {
     const [inputSearch, getInputSearch] = useState('');
 
     const onSubmit = (e) => {
-        console.log(inputSearch);
         e.preventDefault();
         history.push(inputSearch);
         getInputSearch('');
