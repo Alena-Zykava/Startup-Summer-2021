@@ -9,16 +9,16 @@ import Spinner from '../spinner';
 import EmptyRepos from '../emptyRepos';
     
 const PersonRepos = ({userName, numberRepos}) => {
-    const [reposData, getReposData] = useState([]);
-    const [loading, getLoading] = useState(true);
-    const [isEmptyRepos, getIsEmptyRepos] = useState(false);
-    const [currentPage, getCurrentPage] = useState(1);
+    const [reposData, setReposData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [isEmptyRepos, setIsEmptyRepos] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
         getPersonRepos(userName, currentPage).then((res) => {            
-            getReposData(res.data);
-            getLoading(false);
-            res.data.length === 0 ? getIsEmptyRepos(true) : getIsEmptyRepos(false);            
+            setReposData(res.data);
+            setLoading(false);
+            res.data.length === 0 ? setIsEmptyRepos(true) : setIsEmptyRepos(false);            
         })
     }, [userName, currentPage]);
 
@@ -38,7 +38,7 @@ const PersonRepos = ({userName, numberRepos}) => {
                     </h2>
                     {items}
                 </div>                
-                <Paginate numberRepos={numberRepos} getCurrentPage={ getCurrentPage }/>
+                <Paginate numberRepos={numberRepos} setCurrentPage={ setCurrentPage }/>
             </div>
         )
     }
