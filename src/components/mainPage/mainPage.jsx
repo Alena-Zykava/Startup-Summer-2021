@@ -9,18 +9,18 @@ import EmptyPage from '../emptyPage';
 import Spinner from '../spinner';
 
 const MainPage = ({ userName }) => {
-    const [isNotFound, getIsNotFound] = useState(false);
-    const [loading, getLoading] = useState(true);
-    const [personData, getPersonData] = useState({});
+    const [isNotFound, setIsNotFound] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [personData, setPersonData] = useState({});
     
     useEffect(() => {
         getPerson(userName).then((res) => {
-            getLoading(false);
-            getIsNotFound(false);
-            getPersonData(res.data);
+            setLoading(false);
+            setIsNotFound(false);
+            setPersonData(res.data);
         }).catch(() => {
-            getLoading(false);
-            getIsNotFound(true)
+            setLoading(false);
+            setIsNotFound(true)
         })
     }, [userName]);
 

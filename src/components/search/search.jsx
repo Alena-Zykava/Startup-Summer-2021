@@ -3,16 +3,16 @@ import './search.scss';
 import { withRouter } from 'react-router-dom';
 
 const Search = ({ history }) => {
-    const [inputSearch, getInputSearch] = useState('');
+    const [inputSearch, setInputSearch] = useState('');
 
     const onSubmit = (e) => {
         e.preventDefault();
         history.push(inputSearch);
-        getInputSearch('');
+        setInputSearch('');
     }
 
     const handleChange = (e) => {
-        getInputSearch(e.target.value);
+        setInputSearch(e.target.value);
     }
 
     return (

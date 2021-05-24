@@ -4,13 +4,13 @@ import { number, func } from 'prop-types';
 
 import './paginate.scss';
 
-const Paginate = ({ numberRepos, getCurrentPage }) => {    
+const Paginate = ({ numberRepos, setCurrentPage }) => {    
 
-    const [theFirstIndexRepo, getTheFirstIndexRepo] = useState(1);
-    const [theLastIndexRepo, getTheLastIndexRepo] = useState(null);
+    const [theFirstIndexRepo, setTheFirstIndexRepo] = useState(1);
+    const [theLastIndexRepo, setTheLastIndexRepo] = useState(null);
 
     useEffect(() => {
-        getTheLastIndexRepo(numberRepos <= 4 ? numberRepos : 4);
+        setTheLastIndexRepo(numberRepos <= 4 ? numberRepos : 4);
     }, [numberRepos]);
 
     const NUMBER_REPOS_ON_PAGE = 4;
@@ -18,9 +18,9 @@ const Paginate = ({ numberRepos, getCurrentPage }) => {
 
     const pageChangeHandler = (page) => {
         const numberPage = page.selected + 1;
-        getCurrentPage(numberPage);
-        getTheFirstIndexRepo(numberPage * NUMBER_REPOS_ON_PAGE - 3);
-        getTheLastIndexRepo(numberPage * NUMBER_REPOS_ON_PAGE >= numberRepos ? numberRepos : numberPage * NUMBER_REPOS_ON_PAGE);
+        setCurrentPage(numberPage);
+        setTheFirstIndexRepo(numberPage * NUMBER_REPOS_ON_PAGE - 3);
+        setTheLastIndexRepo(numberPage * NUMBER_REPOS_ON_PAGE >= numberRepos ? numberRepos : numberPage * NUMBER_REPOS_ON_PAGE);
     }
 
     return (
@@ -45,7 +45,7 @@ const Paginate = ({ numberRepos, getCurrentPage }) => {
 
 Paginate.propTypes = {
     numberRepos: number,
-    getCurrentPage: func
+    setCurrentPage: func
 }
 
 export default Paginate;
