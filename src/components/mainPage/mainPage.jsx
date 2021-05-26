@@ -14,6 +14,7 @@ const MainPage = ({ userName }) => {
     const [personData, setPersonData] = useState({});
     
     useEffect(() => {
+        setLoading(true);
         getPerson(userName).then((res) => {
             setLoading(false);
             setIsNotFound(false);

@@ -15,7 +15,8 @@ const PersonRepos = ({userName, numberRepos}) => {
     const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
-        getPersonRepos(userName, currentPage).then((res) => {            
+        setLoading(true);
+        getPersonRepos(userName, currentPage).then((res) => {
             setReposData(res.data);
             setLoading(false);
             res.data.length === 0 ? setIsEmptyRepos(true) : setIsEmptyRepos(false);            
